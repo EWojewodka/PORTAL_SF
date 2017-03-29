@@ -1,0 +1,93 @@
+@CHARSET "UTF-8";
+
+body {
+	background-image: url("/images/background.jpg");
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: monospace;
+	display: block;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	max-width: 98%;
+	white-space: pre-line;
+}
+
+header {
+	font-size: 36px;
+	font-stretch: ultra-condensed;
+	width: 90%;
+	padding: 10px;
+	padding-right: 0;
+	background-color: transparent;
+	color: black;
+	width: 100%;
+}
+
+section {
+	margin: auto;
+	width: 70%;
+	color: #003333;
+	color: #003333;
+}
+
+article {
+	margin: 5px;
+	padding-left: 3px;
+	font-size: large;
+	background-color: #f6f2e9;
+	border-radius: 6px;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+	border-top: 1px solid gray;
+	border-left: 1px solid gray;
+}
+
+/* =======MENU STYLE=======*/
+.site-nav {
+	float: left;
+	font-size: large;
+	width: 8%;
+	background-color: #E9F6F2;
+	color: #003333;
+	list-style-type: none;
+	padding: 0px;
+	border: 2px solid #003333;
+	border-radius: 4px;
+}
+
+.site-nav .nav-item {
+	border-bottom: 1.5px solid #003333;
+}
+
+.site-nav .nav-item:LAST-CHILD {
+	border-bottom: none;
+}
+
+.site-nav .nav-item a {
+	color: #003333;
+}
+
+.site-nav .nav-item a:HOVER {
+	color: #eeeeee;
+	background-color: #E0D2B3;
+}
+
+/* ========ALERT BOXES========*/
+.error {
+	padding: 15px;
+	margin: 15px;
+	border_radius: 6px;
+	border: black solid 1.5px;
+	background-color: #f2dede;
+	color: #a94442;
+}
+
+.msg {
+	padding: 15px;
+	margin: 15px;
+	border_radius: 6px;
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
