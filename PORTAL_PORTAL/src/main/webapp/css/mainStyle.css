@@ -1,27 +1,26 @@
 @CHARSET "UTF-8";
 
 body {
-	background-image: url("/images/background.jpg");
-	background-attachment: scroll;
-	background-repeat: no-repeat;
-	background-size: cover;
-	font-family: monospace;
-	display: block;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	max-width: 98%;
-	white-space: pre-line;
+	background-color: #6C85FF !important;
 }
-
+/*
 header {
 	font-size: 36px;
 	font-stretch: ultra-condensed;
+	background-attachment: fixed;
 	width: 90%;
 	padding: 10px;
 	padding-right: 0;
 	background-color: transparent;
 	color: black;
 	width: 100%;
+}
+
+header logo img {
+	width: 50px;
+	height: 50px;
+	border-bottom-right-radius: 4px;
+	float: left;
 }
 
 section {
@@ -43,7 +42,19 @@ article {
 	border-left: 1px solid gray;
 }
 
+.upToolBar {
+	width: 100%;
+	height: 40px;
+	position: fixed;
+	background-color: #E0D2B3;
+}
+
+.upToolBar .user {
+	float: right;
+}
+
 /* =======MENU STYLE=======*/
+/*
 .site-nav {
 	float: left;
 	font-size: large;
@@ -74,6 +85,7 @@ article {
 }
 
 /* ========ALERT BOXES========*/
+/*
 .error {
 	padding: 15px;
 	margin: 15px;
@@ -91,3 +103,7 @@ article {
 	background-color: #d9edf7;
 	border-color: #bce8f1;
 }
+.form-field-error {
+	border-color: red;
+}
+*/

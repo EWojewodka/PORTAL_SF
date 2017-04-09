@@ -4,30 +4,15 @@ public enum Roles {
 	/**
 	 * 
 	 */
-	ROLE_USER(true, false, false),
+	USER,
 	/**
 	 * 
 	 */
-	ROLE_ADMIN(true, true, false),
+	MODERATOR,
 	/**
 	 * 
 	 */
-	ROLE_MODERATOR(true, true, true);
-	/**
-	 * 
-	 */
-	boolean publicPost, moderatorTools, administrationTools;
+	ADMIN;
 
-	/**
-	 * 
-	 * @param publicPost
-	 * @param moderatorTools
-	 * @param administrationTools
-	 */
-	private Roles(boolean publicPost, boolean moderatorTools, boolean administrationTools) {
-		this.publicPost = publicPost;
-		this.moderatorTools = moderatorTools;
-		this.administrationTools = administrationTools;
-	}
 
 }
