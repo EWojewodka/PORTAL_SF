@@ -14,7 +14,7 @@ public class PortalPortalApplication extends SpringBootServletInitializer {
 		SpringApplication.run(PortalPortalApplication.class, args);
 	}
 	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
 		return application.sources(PortalPortalApplication.class);
 	}
 

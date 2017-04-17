@@ -4,35 +4,89 @@ public enum PostAccess {
 	/**
 	 * 
 	 */
-	HIDDEN(true, false, false, false),
+	HIDDEN("Hidden", "icon-eye-close", true, false, false, false),
 	/**
 	 * 
 	 */
-	PRIVATE(true, true, false, false),
+	PRIVATE("Private", "glyphicon-lock", true, true, false, false),
 	/**
 	 * 
 	 */
-	PUBLIC(true, true, true, false),
+	PUBLIC("Public", "glyphicon-user", true, true, true, false),
 	/**
 	 * 
 	 */
-	GLOBAL(true, true, true, true);
+	GLOBAL("Global", "glyphicon-globe", true, true, true, true);
 	/**
 	 * 
 	 */
-	@SuppressWarnings("unused")
 	private boolean author, byLink, friends, all;
+	private String name, glyph;
+
 	/**
-	 *  Visible for:
+	 * 
+	 * @param name
+	 * @param glyph
 	 * @param author
 	 * @param byLink
 	 * @param friends
 	 * @param all
 	 */
-	private PostAccess(boolean author, boolean byLink, boolean friends, boolean all) {
+	PostAccess(String name, String glyph, boolean author, boolean byLink, boolean friends, boolean all) {
+		this.name = name;
+		this.glyph = glyph;
 		this.author = author;
 		this.byLink = byLink;
 		this.friends = friends;
 		this.all = all;
 	}
+
+	public boolean isAuthor() {
+		return author;
+	}
+
+	public void setAuthor(boolean author) {
+		this.author = author;
+	}
+
+	public boolean isByLink() {
+		return byLink;
+	}
+
+	public void setByLink(boolean byLink) {
+		this.byLink = byLink;
+	}
+
+	public boolean isFriends() {
+		return friends;
+	}
+
+	public void setFriends(boolean friends) {
+		this.friends = friends;
+	}
+
+	public boolean isAll() {
+		return all;
+	}
+
+	public void setAll(boolean all) {
+		this.all = all;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getGlyph() {
+		return glyph;
+	}
+
+	public void setGlyph(String glyph) {
+		this.glyph = glyph;
+	}
+
 }

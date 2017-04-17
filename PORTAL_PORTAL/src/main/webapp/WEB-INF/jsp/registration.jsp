@@ -22,7 +22,7 @@
 	<div class="text-center" style="padding:50px 0">
 	<div class="logo">register</div>
 	<div class="login-form-1">
-		<form:form id="register-form" class="text-left" modelAttribute="userForm" action="/user/registration" method="POST">
+		<form:form id="register-form" class="text-left" modelAttribute="userForm" action="/registration" method="POST">
 			<div class="login-form-main-message"></div>
 			<div class="main-login-form">
 				<div class="login-group">

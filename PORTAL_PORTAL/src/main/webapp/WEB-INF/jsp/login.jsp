@@ -45,7 +45,9 @@
 							<label for="remember">remember</label>
 						</div>
 					</div>
-					<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+						<input type="hidden" name="_token" id="csrf-token"
+							value="{{ Session::token() }}" />
+						<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
 				</div>
 				<div class="etc-login-form">
 				    <p>forgot your password? <a href="#">click here</a></p>

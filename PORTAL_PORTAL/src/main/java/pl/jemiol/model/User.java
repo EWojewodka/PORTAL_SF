@@ -1,16 +1,9 @@
 package pl.jemiol.model;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -26,7 +19,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	private Long id;
+	private int id;
 	/**
 	 * 
 	 */
@@ -42,28 +35,100 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	/**
-	 * 
+	 * In database it's stored like a String, but setter and getter are in Roles
+	 * type.
 	 */
 	@Column(name = "roles")
-	@ElementCollection
-	private Set<Roles> roles;
+	@NotNull
+	private String roles = "USER";
+	/**
+	 * 
+	 */
 	private String passwordConfirm;
-	
+	/**
+	 * 
+	 */
 	@Column(name = "posts")
-	@OneToMany(mappedBy="owner")
+	@OneToMany(mappedBy = "owner")
 	private List<Post> posts;
-	
+	/**
+	 * 
+	 */
 	@Column(name = "friends")
-	private Set<User> friends;
-	
+	@ManyToMany
+	private List<User> friends = new ArrayList<User>();
+	/**
+	 * 
+	 */
+	@Column(name = "invitedBy")
+	@ManyToMany
+	private List<User> invitedBy = new ArrayList<User>();
+	/**
+	 * 
+	 */
+	@Column(name = "invitedFriends")
+	@ManyToMany(mappedBy = "invitedBy")
+	private List<User> invitedFriends = new ArrayList<User>();
+	/**
+	 * 
+	 */
 	@Column(name = "watchedPost")
-	private Set<Post> watchedPosts;
+	@ElementCollection
+	private List<Post> watchedPosts = new ArrayList<Post>();
+	/**
+	 * 
+	 */
+	@Column(name = "post_likes")
+	@ElementCollection
+	private List<Post> postLikes = new ArrayList<Post>();
+	/**
+	 * 
+	 */
+	// TODO DOESN'T WORK.
+	@Column(name = "online")
+	private boolean online = false;
 
-	public Long getId() {
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Post> getPostLikes() {
+		return postLikes;
+	}
+
+	public void setPostLikes(List<Post> postLikes) {
+		this.postLikes = postLikes;
+	}
+
+	public List<User> getInvitedBy() {
+		return invitedBy;
+	}
+
+	public void setInvitedBy(ArrayList<User> invitedBy) {
+		this.invitedBy = invitedBy;
+	}
+
+	public List<User> getInvitedFriends() {
+		return invitedFriends;
+	}
+
+	public void setInvitedFriends(ArrayList<User> invitedFriends) {
+		this.invitedFriends = invitedFriends;
+	}
+
+	public boolean isOnline() {
+		return online;
+	}
+
+	public void setOnline(boolean online) {
+		this.online = online;
+	}
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -83,14 +148,23 @@ public class User {
 		this.password = password;
 	}
 
-	public Set<Roles> getRoles() {
-		return roles;
+	/**
+	 * This getter return Roles Enum
+	 * 
+	 * @return
+	 */
+	public Roles getRoles() {
+		return Roles.valueOf(roles);
 	}
 
-	public void setRoles(Set<Roles> roles) {
-		this.roles = roles;
+	/**
+	 * You should give in param role from enum, not a String.
+	 * 
+	 * @param roles
+	 */
+	public void setRoles(Roles roles) {
+		this.roles = roles.name();
 	}
-	
 
 	public String getPasswordConfirm() {
 		return passwordConfirm;
@@ -100,24 +174,28 @@ public class User {
 		this.passwordConfirm = passwordConfirm;
 	}
 
-	public User withUsername(String username) {
-		this.username = username;
-		return this;
+	public List<Post> getPosts() {
+		return posts;
 	}
 
-	public User withPassword(String password) {
-		this.password = password;
-		return this;
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
 	}
 
-	public User withRole(Set<Roles> roles) {
-		this.roles = roles;
-		return this;
+	public List<User> getFriends() {
+		return friends;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", roles=" + roles + "]";
+	public void setFriends(ArrayList<User> friends) {
+		this.friends = friends;
 	}
-	
+
+	public List<Post> getWatchedPosts() {
+		return watchedPosts;
+	}
+
+	public void setWatchedPosts(List<Post> watchedPosts) {
+		this.watchedPosts = watchedPosts;
+	}
+
 }
