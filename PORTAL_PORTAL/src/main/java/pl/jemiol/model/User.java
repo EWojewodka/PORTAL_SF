@@ -84,14 +84,10 @@ public class User {
 	/**
 	 * 
 	 */
-	// TODO DOESN'T WORK.
+	// TODO DOESN'T WORK YET
 	@Column(name = "online")
 	private boolean online = false;
 
-	/**
-	 * 
-	 * @return
-	 */
 	public List<Post> getPostLikes() {
 		return postLikes;
 	}

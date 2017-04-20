@@ -1,1 +1,0 @@
-// ${'newPostButton'}.click(function())

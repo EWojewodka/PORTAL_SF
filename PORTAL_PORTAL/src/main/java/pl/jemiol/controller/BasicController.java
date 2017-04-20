@@ -103,7 +103,7 @@ public class BasicController {
 		request.getSession().setAttribute("userName", loggedUser.getUsername());
 		request.getSession().setAttribute("userId", loggedUser.getId());
 		request.getSession().setAttribute("user", loggedUser);
-		model.addAttribute("listOfPostAccess",list);
+		request.getSession().setAttribute("listOfPostAccess",list);
 		return "main";
 	}
 
