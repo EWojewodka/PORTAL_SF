@@ -70,7 +70,6 @@ public class BasicController {
 				return "redirect:/";
 			}
 		}
-		model.addAttribute("error", "Username or password is invalid.");
 		return "login";
 	}
 

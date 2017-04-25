@@ -88,9 +88,13 @@ public class User {
 	@Column(name = "online")
 	private boolean online = false;
 
+//	@Column(name = "user_in_depth")
+//	public UserInDepth userInDepth;
+
 	public List<Post> getPostLikes() {
 		return postLikes;
 	}
+	
 
 	public void setPostLikes(List<Post> postLikes) {
 		this.postLikes = postLikes;

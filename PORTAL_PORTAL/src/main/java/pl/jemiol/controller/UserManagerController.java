@@ -26,8 +26,11 @@ public class UserManagerController {
 	public String sendInvite(@PathVariable("id") String id, Model model, WebRequest webRequest) {
 		User loggedUser = userRepository.findByUsername(webRequest.getUserPrincipal().getName());
 		User userToInvite = userRepository.findOne(Integer.parseInt(id));
-		userService.sendInviteToFriends(loggedUser, userToInvite);
-		model.addAttribute("friends", loggedUser.getInvitedFriends().size());
+		if (userService.sendInviteToFriends(loggedUser, userToInvite)) {
+			model.addAttribute("alert", "Invitation is sent");
+			return "main";
+		}
+		model.addAttribute("alert", "Failed action");
 		return "main";
 	}
 
@@ -38,7 +41,7 @@ public class UserManagerController {
 		userService.acceptInvitedToFriends(loggedUser, userToAccept);
 		return "main";
 	}
-	
+
 	@RequestMapping(value = "/delete-invite/{id}", method = RequestMethod.GET)
 	public String deleteInvite(@PathVariable("id") String id, Model model, WebRequest webRequest) {
 		User loggedUser = userRepository.findByUsername(webRequest.getUserPrincipal().getName());

@@ -24,7 +24,7 @@ a:visited {
     min-height: 100%;
     height: auto;
     margin: 0 5% 0 5%;
-    background-color: orange;
+    background-color: silver;
     padding-top: 10px;
     text-align: left;
 }
@@ -103,6 +103,11 @@ a:visited {
     margin-left: -40px;
     max-width: 130%;
     padding: 10px;
+}
+.container #right-friends-menu {
+    float: right;
+    border: 2px solid black;
+    position: fixed;
 }
 
 .header {

@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -13,7 +10,7 @@
     <meta name="viewport" content="width=device-width" initial-scale="1" maximum-scale="1"/>
     <link rel="stylesheet" href="/css/main-style.css"/>
     <link rel="stylesheet"
-          href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+          href="/css/font-awesome.min.css">
     <title>Portal</title>
 </head>
 <body>
@@ -22,7 +19,7 @@
     <div id="nav-menu">
         <ul>
             <a href="#" id="userName"><li>${userName}</li></a>
-            <a href="/logout" id="logout"><li>Logout</li></a>
+            <a href="#" id="logout"><li>Logout</li></a>
         </ul>
         <ul>
             <a href="#"><li id="home"></li></a>
@@ -90,6 +87,14 @@
                 <button class="button">Comment</button>
                 <textarea class="comment">Write a comment.</textarea>
             </div>
+        </div>
+        <div id="right-friends-menu">
+        	<ul id="friends-online">
+        	
+        	</ul>
+			<ul id="action-friends">
+			
+			</ul>
         </div>
 
     </div>
